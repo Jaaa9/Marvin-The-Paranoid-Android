@@ -37,7 +37,7 @@ async def quote(ctx):
     await ctx.channel.send(marvinsquotes())
 
 # Creating the !kick command
-# TODO: Def !kick (program crash)
+# TODO: Fix so that the bot doesn't crash if !kick is empty
 @bot.command()
 async def kick(ctx, member: discord.Member, *, reason=None):
     if member == None or member == ctx.message.author:
@@ -51,7 +51,7 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     await ctx.channel.send(f"{member} is kicked from the server!")
 
 # Creating the ban command
-# TODO: Def !ban (program crash)
+# TODO: Fix so that if !ban command is empty the bot doesn't crash
 @bot.command()
 async def ban(ctx, member: discord.Member, *, reason=None):
     if member == None or member == ctx.message.author:
