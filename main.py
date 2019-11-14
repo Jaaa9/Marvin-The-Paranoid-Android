@@ -48,11 +48,13 @@ async def kick(ctx, member: discord.Member, *, reason=None):
         await ctx.channel.send("You cannot KICK yourself!")
         return
     if reason == None:
-        reason = "YOU offended Marvin"
+        reason = "My protocols have failed me.. I'm sure I can find the reason you were booted from the server " \
+                 "somewhere.. maybe you're just sad, like me? "
     message = f"You have been kicked from the server because {reason}"
-    await member.send(message)
+    await member.send(reason)
     await member.kick()
-    await ctx.channel.send(f"{member} is kicked from the server!")
+    await ctx.channel.send(f"There he goes..{member} was a troubled soul for sure")
+    await ctx.channel.send("http://45.media.tumblr.com/tumblr_m9mle0CoJM1qhsmbwo1_r3_500.gif")
 
 
 @bot.command()
