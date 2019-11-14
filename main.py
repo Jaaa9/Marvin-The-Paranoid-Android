@@ -66,7 +66,9 @@ async def bustimes(ctx, aliases='Bustimes'):
 @bot.command()
 async def ban(ctx, member: discord.Member, *, reason=None):
     if member is None or member == ctx.message.author:
-        await ctx.channel.send("You cannot BAN yourself!")
+        await ctx.channel.send("Considering how depressed you look I should allow this behavior\n however, my"
+                               "protocols won't allow this behavior(You can't ban yourself)\n "
+                               "https://tenor.com/view/marvin-hitchhiker-guide-to-the-galaxy-gif-4931649")
         return
     if reason is None:
         reason = "YOU offended Marvin"
