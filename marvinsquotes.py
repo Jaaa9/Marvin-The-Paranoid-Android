@@ -22,6 +22,8 @@ def marvinsquotes():
               "The first ten million years were the worst. And the second ten million: they were the worst, too."
               "The third ten million I didn’t enjoy at all. After that, I went into a bit of a decline.",
               "Life? Don’t talk to me about life!",
+              "https://media0.giphy.com/media/WrAScgd8rOba8/source.gif",
+              "https://media.giphy.com/media/e3nycqieeqjZu/giphy.gif",
               "I ache, therefore I am.",
               "Life. Loathe it or ignore it. You can’t like it."]
     return random.choice(quotes)
