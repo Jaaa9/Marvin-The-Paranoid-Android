@@ -7,6 +7,7 @@ from marvinsquotes import marvinsquotes
 # will start with "!". The function name is also the command, for instance calling ping() you would write !ping
 bot = commands.Bot(command_prefix="!", status=discord.Status.idle, activity=discord.Game(name="Booting.."))
 
+
 # Loading bot, setting status as online and activity
 @bot.event
 async def on_ready():
@@ -22,6 +23,7 @@ async def commands(ctx):
     print("Here are my commands\n")
     await ctx.channel.send("ping, ")
 
+
 # Creating the !ping command
 @bot.command()
 async def ping(ctx):
@@ -29,12 +31,14 @@ async def ping(ctx):
     ping = round(ping_ * 1000)
     await ctx.channel.send("My latency is " + str(round(bot.latency, 3)) + " MS")
 
+
 # Creating the !quote command
 # Calling marvinsquotes function from marvinsquotes.py
 # TODO: Add aliases??
 @bot.command()
 async def quote(ctx):
     await ctx.channel.send(marvinsquotes())
+
 
 # Creating the !kick command
 # TODO: Fix so that the bot doesn't crash if !kick is empty
@@ -50,24 +54,28 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     await member.kick()
     await ctx.channel.send(f"{member} is kicked from the server!")
 
+
 @bot.command()
-async def bustimes(ctx):
+async def bustimes(ctx, aliases='Bustimes'):
     BusSchedule = 'http://skilt.akt.no/Tmix.Cap.DigSig.Gui/App/Rtpi.aspx?numberOfRows=10&stopAreaId=10015030'
     await ctx.channel.send("Well..I guess if you MUST know.. here they are\n" + BusSchedule)
+
 
 # Creating the ban command
 # TODO: Fix so that if !ban command is empty the bot doesn't crash
 @bot.command()
 async def ban(ctx, member: discord.Member, *, reason=None):
-    if member == None or member == ctx.message.author:
+    if member is None or member == ctx.message.author:
         await ctx.channel.send("You cannot BAN yourself!")
         return
-    if reason == None:
+    if reason is None:
         reason = "YOU offended Marvin"
+
     message = f"You have been banned from the server because {reason}"
     await member.send(message)
     await member.ban()
     await ctx.channel.send(f"{member} is banned from the server!")
+
 
 # Creating the !unban command
 # TODO: Cannot !unban with @, fix? !unban jekerholt#3601 works but missing @
@@ -83,6 +91,7 @@ async def unban(ctx, *, member):
             await ctx.guild.unban(user)
             await ctx.channel.send(f"Unbanned {user.mention}")
             return
+
 
 # Fetching token 'DiscordToken' from env
 token = os.getenv("DiscordToken")
