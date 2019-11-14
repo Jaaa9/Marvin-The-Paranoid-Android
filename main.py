@@ -50,6 +50,11 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     await member.kick()
     await ctx.channel.send(f"{member} is kicked from the server!")
 
+@bot.command()
+async def bustimes(ctx):
+    BusSchedule = 'http://skilt.akt.no/Tmix.Cap.DigSig.Gui/App/Rtpi.aspx?numberOfRows=10&stopAreaId=10015030'
+    await ctx.channel.send("Well..I guess if you MUST know.. here they are\n" + BusSchedule)
+
 # Creating the ban command
 # TODO: Fix so that if !ban command is empty the bot doesn't crash
 @bot.command()
