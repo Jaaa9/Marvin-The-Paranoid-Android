@@ -27,3 +27,12 @@ def marvinsquotes():
               "I ache, therefore I am.",
               "Life. Loathe it or ignore it. You can’t like it."]
     return random.choice(quotes)
+
+
+# Creating the !youtubelinks command
+def marvinvideos():
+    videos = ["https://www.youtube.com/watch?v=CAA67a2-Klk",
+              "https://www.youtube.com/watch?v=P5MzPRa47ck",
+              "https://youtu.be/TQJY6PSVwWI",
+              "https://www.youtube.com/watch?v=Mwh8CgWc80E"]
+    return random.choice(videos)

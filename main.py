@@ -1,7 +1,7 @@
 from discord.ext import commands
 import discord
 import os
-from marvinsquotes import marvinsquotes
+from marvin import marvinsquotes, marvinvideos
 
 # assigning commands.Bot() to bot variable and setting default command prefix as "!", meaning all commands
 # will start with "!". The function name is also the command, for instance calling ping() you would write !ping
@@ -38,6 +38,12 @@ async def ping(ctx):
 @bot.command()
 async def quote(ctx):
     await ctx.channel.send(marvinsquotes())
+
+
+# Defining a youtube video command that provide random videos from the movie.
+@bot.command()
+async def clips(ctx):
+    await ctx.channel.send(marvinvideos())
 
 
 # Creating the !kick command
